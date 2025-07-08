@@ -26,8 +26,8 @@
 ---
 
 ## 📸 Screenshot
-![App Screenshot](./assets/screenshot.png)
 
+![App Screenshot](https://github.com/Happinesslazarus/RGU-ECHO-Mental-App/blob/436eb973956029ca162a41ccdee0b1180c0a1ee0/Screenshot%20(129).png?raw=true)
 
 ---
 
