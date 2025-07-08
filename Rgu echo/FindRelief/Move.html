@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move - Your Gateway to Wellness</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .button-hover:hover {
+            background-color: #6cd4a6;
+            color: #ffffff;
+            transform: scale(1.05);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #4caf50;
+            border-bottom: 2px solid #4caf50;
+        }
+        .quote-bg {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div class="flex items-center py-4">
+                        <span class="font-bold text-3xl text-green-600">MOVE</span>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#" class="py-4 px-2 text-gray-500 hover:nav-link transition duration-300">Home</a>
+                        <a href="#benefits" class="py-4 px-2 text-gray-500 hover:nav-link transition duration-300">Benefits</a>
+                        <a href="#research" class="py-4 px-2 text-gray-500 hover:nav-link transition duration-300">Research</a>
+                        <a href="#resources" class="py-4 px-2 text-gray-500 hover:nav-link transition duration-300">Resources</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-bg pt-40 pb-32 text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-6xl font-bold mb-8 text-white" data-aos="fade-down">Movement is Medicine</h1>
+            <p class="text-2xl text-white mb-12 max-w-3xl mx-auto" data-aos="fade-up">Discover the power of movement for your body, mind, and soul</p>
+            <a href="#start" class="bg-white text-green-600 font-bold py-4 px-10 rounded-full button-hover text-lg">Start Moving</a>
+        </div>
+    </header>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Benefits of Movement</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-green-500 text-5xl mb-6">🧠</div>
+                    <h3 class="font-bold text-2xl mb-4">Enhanced Cognition</h3>
+                    <p class="text-gray-600 text-lg">Walking improves decision-making and problem-solving abilities, boosting your creative thinking.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-green-500 text-5xl mb-6">😊</div>
+                    <h3 class="font-bold text-2xl mb-4">Mental Wellness</h3>
+                    <p class="text-gray-600 text-lg">Regular movement helps prevent depression and anxiety, improving overall mental health.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-green-500 text-5xl mb-6">💪</div>
+                    <h3 class="font-bold text-2xl mb-4">Physical Health</h3>
+                    <p class="text-gray-600 text-lg">Exercise strengthens your body, improves cardiovascular health, and boosts immunity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Research & Evidence</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg" data-aos="fade-right">
+                    <div class="space-y-8">
+                        <div class="quote-bg rounded-lg">
+                            <p class="text-gray-700 text-lg mb-3">Walking can help with decision making and problem solving</p>
+                            <a href="https://executiveeducation.wharton.upenn.edu/thought-leadership/wharton-at-work/2018/09/decision-making-and-problem-solving-by-walking/" class="text-green-500 hover:text-green-600 font-semibold">Wharton @ Work, UPenn</a>
+                        </div>
+                        <div class="quote-bg rounded-lg">
+                            <p class="text-gray-700 text-lg mb-3">Want to be more creative? Go for a walk</p>
+                            <a href="https://www.ted.com/talks/marily_oppezzo_want_to_be_more_creative_go_for_a_walk" class="text-green-500 hover:text-green-600 font-semibold">TED Talk, Marily Oppezzo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-wrapper" data-aos="fade-left">
+                    <iframe src="https://www.youtube.com/embed/M4p6TddpHSg" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movement Timer Section -->
+    <section class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-12" data-aos="fade-up">Movement Timer</h2>
+            <div class="bg-white p-12 rounded-xl shadow-lg inline-block" data-aos="zoom-in">
+                <div id="timer" class="text-7xl font-bold text-green-600 mb-8">25:00</div>
+                <div class="space-x-6">
+                    <button onclick="startTimer()" class="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-600 transition duration-300 text-lg font-semibold">Start</button>
+                    <button onclick="resetTimer()" class="bg-gray-500 text-white px-8 py-3 rounded-full hover:bg-gray-600 transition duration-300 text-lg font-semibold">Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Movement Ideas -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Quick Movement Ideas</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl mb-6">🚶‍♂️</div>
+                    <h3 class="font-bold text-xl mb-3">5-Minute Walk</h3>
+                    <p class="text-gray-600">Perfect for quick breaks</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl mb-6">🧘‍♀️</div>
+                    <h3 class="font-bold text-xl mb-3">Desk Stretches</h3>
+                    <p class="text-gray-600">Easy workplace movement</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl mb-6">⚡</div>
+                    <h3 class="font-bold text-xl mb-3">Power Pose</h3>
+                    <p class="text-gray-600">Boost confidence instantly</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-5xl mb-6">💃</div>
+                    <h3 class="font-bold text-xl mb-3">Dance Break</h3>
+                    <p class="text-gray-600">Fun energy boost</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">About</h3>
+                    <p class="text-gray-400 text-lg">Created by staff and students at Robert Gordon University</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-lg">Home</a></li>
+                        <li><a href="#benefits" class="text-gray-400 hover:text-white text-lg">Benefits</a></li>
+                        <li><a href="#research" class="text-gray-400 hover:text-white text-lg">Research</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Connect</h3>
+                    <p class="text-gray-400 text-lg">Follow us for daily movement inspiration</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Timer functionality
+        let timeLeft = 1500; // 25 minutes in seconds
+        let timerId = null;
+
+        function startTimer() {
+            if (timerId === null) {
+                timerId = setInterval(updateTimer, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerId);
+            timerId = null;
+            timeLeft = 1500;
+            updateTimerDisplay();
+        }
+
+        function updateTimer() {
+            timeLeft--;
+            if (timeLeft <= 0) {
+                clearInterval(timerId);
+                timerId = null;
+                alert("Time to move!");
+            }
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Mental Health Support Directory</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .search-animation {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .search-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .search-animation:hover::before {
+            left: 100%;
+        }
+        
+        .helpline-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .helpline-card:hover {
+            border-left-color: #667eea;
+            transform: translateX(4px);
+        }
+        
+        .contact-button {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-12 px-4 shadow-lg">
+        <div class="max-w-4xl mx-auto">
+            <!-- Navigation Home Button -->
+            <div class="flex justify-between items-center mb-6">
+                <!-- Fixed navigation link - now pointing to parent directory -->
+                <a href="../index.html" class="inline-flex items-center px-4 py-2 bg-white bg-opacity-20 text-white rounded-lg hover:bg-opacity-30 transition">
+                    <i class="fas fa-home mr-2"></i>
+                    Back to Home
+                </a>
+                <div class="text-right">
+                    <span class="text-sm opacity-75">External Helplines</span>
+                </div>
+            </div>
+            
+            <!-- Main Title -->
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4">UK Mental Health Support Directory</h1>
+                <p class="text-xl opacity-90">Find the support you need, when you need it</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Emergency Card -->
+        <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg mb-8 card-hover">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-exclamation-triangle text-red-500 text-3xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-lg font-semibold text-red-700">Emergency Support</h3>
+                    <p class="text-red-600 mt-1">If you're in immediate danger or need urgent help:</p>
+                    <div class="mt-3 flex space-x-4">
+                        <a href="tel:999" class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition contact-button">
+                            <i class="fas fa-phone mr-2"></i>
+                            Call 999
+                        </a>
+                        <a href="tel:111" class="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition contact-button">
+                            <i class="fas fa-hospital mr-2"></i>
+                            NHS 111
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-6">Find Support Services</h2>
+            <div class="space-y-4">
+                <div class="relative search-animation">
+                    <select id="theme" class="w-full p-4 border border-gray-300 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">Select the type of support you need...</option>
+                        <option value="mental">Mental Health</option>
+                        <option value="abuse">Abuse and Domestic Violence</option>
+                        <option value="addiction">Addiction</option>
+                        <option value="adhd">ADHD</option>
+                        <option value="alzheimers">Alzheimer's and Dementia</option>
+                        <option value="autism">Autism</option>
+                        <option value="bullying">Bullying</option>
+                        <option value="caregiving">Caregiving</option>
+                        <option value="eating">Eating Disorders</option>
+                        <option value="grief">Grief and Loss</option>
+                        <option value="lgbtq">LGBTQ+</option>
+                        <option value="parenting">Parenting</option>
+                        <option value="selfharm">Self-harm</option>
+                        <option value="sleep">Sleep</option>
+                        <option value="teens">Teens</option>
+                        <option value="veterans">Veterans</option>
+                    </select>
+                    <div class="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <button onclick="resetFilters()" class="flex-1 py-3 px-4 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition">
+                        <i class="fas fa-redo mr-2"></i>
+                        Reset
+                    </button>
+                    <button onclick="applyFilters()" class="flex-1 py-3 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                        <i class="fas fa-search mr-2"></i>
+                        Find Help
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="helplines" class="bg-white rounded-xl shadow-md p-6 mb-8 hidden">
+            <!-- Results will be dynamically inserted here -->
+        </div>
+
+        <!-- Sample Helplines Display -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-6">Featured Support Services</h2>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="helpline-card bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-phone text-blue-600 text-2xl mr-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-800">Samaritans</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Free confidential emotional support 24/7</p>
+                    <div class="flex space-x-3">
+                        <a href="tel:116123" class="contact-button bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                            <i class="fas fa-phone mr-1"></i> 116 123
+                        </a>
+                        <a href="mailto:jo@samaritans.org" class="contact-button bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition">
+                            <i class="fas fa-envelope mr-1"></i> Email
+                        </a>
+                    </div>
+                </div>
+
+                <div class="helpline-card bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-comments text-green-600 text-2xl mr-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-800">Mind</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Mental health information and support</p>
+                    <div class="flex space-x-3">
+                        <a href="tel:03001233393" class="contact-button bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition">
+                            <i class="fas fa-phone mr-1"></i> 0300 123 3393
+                        </a>
+                        <a href="https://www.mind.org.uk" target="_blank" class="contact-button bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition">
+                            <i class="fas fa-globe mr-1"></i> Website
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between">
+            <!-- Copyright Section -->
+            <div class="mb-4 sm:mb-0">
+                <p>© 2024 UK Mental Health Support Directory</p>
+                <p class="text-sm opacity-75">Available 24/7 for those in need</p>
+            </div>
+
+            <!-- Additional Resources Section -->
+            <div class="resources-section">
+                <h3 class="text-lg font-semibold mb-2">Additional Resources</h3>
+                <ul class="space-y-1">
+                    <li><a href="#" class="hover:underline">First Aid Guide</a></li>
+                    <li><a href="#" class="hover:underline">Emergency Preparedness Tips</a></li>
+                    <li><a href="#" class="hover:underline">Local Emergency Shelters</a></li>
+                    <li><a href="#" class="hover:underline">Mental Health Resources</a></li>
+                    <!-- Fixed navigation link in footer -->
+                    <li><a href="../index.html" class="hover:underline">← Back to Main Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const helplinesData = {
+            // Your existing helplinesData object here
+            abuse: `
+                <h4 class="region-title">UK Helplines: Abuse and Domestic Violence</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://mensadviceline.org.uk/" target="_blank" rel="noreferrer noopener">Respect Men's Advice Line</a> for male victims: 0808 801 0327</li>
+                    <li><a href="https://galop.org.uk/" target="_blank" rel="noreferrer noopener">National LGBT+ Domestic Abuse Helpline</a>: 0800 999 5428</li>
+                    <li><a href="http://www.nspcc.org.uk/default.html" target="_blank" rel="noreferrer noopener">NSPCC helpline</a> if you're worried about a child: 0800 800 5000</li>
+                    <li><a href="https://www.nspcc.org.uk/" target="_blank" rel="noreferrer noopener">NSPCC Childline</a> for under 18s: 0800 1111</li>
+                    <li><a href="http://www.elderabuse.org.uk/" target="_blank" rel="noreferrer noopener">Action on Elder Abuse</a>: 080 8808 8141</li>
+                    <li><a href="https://rapecrisis.org.uk/get-help/" target="_blank" rel="noreferrer noopener">Rape Crisis</a> National Telephone Helpline in England and Wales: 0808 802 9999</li>
+                </ul>
+            `,
+            addiction: `
+                <h4 class="region-title">UK Helplines: Addiction</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://www.nhsinform.scot/healthy-living/stopping-smoking/help-to-stop/local-help" target="_blank" rel="noreferrer noopener">Smokeline</a>: 0800 84 84 84</li>
+                    <li><a href="https://www.helpmequit.wales/" target="_blank" rel="noreferrer noopener">Help Me Quit</a>: 0800 085 2219</li>
+                    <li><a href="https://www.gamcare.org.uk/get-support/talk-to-us-now/" target="_blank" rel="noreferrer noopener">Gamcare National Gambling Helpline</a>: 0808 8020 133</li>
+                    <li><a href="https://www.drinkaware.co.uk/advice/alcohol-support-services" target="_blank" rel="noreferrer noopener">Drinkline</a>: 0300 123 1110</li>
+                    <li><a href="https://www.al-anonuk.org.uk/helpline/" target="_blank" rel="noreferrer noopener">Al-Anon Helpline</a>: 0800 008 6811</li>
+    
+                </ul>
+            `,
+            adhd: `
+                <h4 class="region-title">UK Helplines: ADHD</h4>
+                <ul class="helpline-list">
+                    <li><a href="http://www.addiss.co.uk/" target="_blank" rel="noreferrer noopener">ADDISS</a>: 020 8952 2800</li>
+                    <li><a href="https://www.youngminds.org.uk/parent/parents-helpline-and-webchat/" target="_blank" rel="noreferrer noopener">YoungMinds Parents Helpline</a>: 0808 802 5544</li>
+                </ul>
+            `,
+            alzheimers: `
+                <h4 class="region-title">UK Helplines: Alzheimer's and Dementia</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://www.alzheimers.org.uk/get-support/national-dementia-helpline" target="_blank" rel="noreferrer noopener">Alzheimer's Society Dementia Connect</a>: 0333 150 3456</li>
+                    <li><a href="https://www.dementiauk.org/get-support/diagnosis-and-next-steps/sources-of-support-and-advice/" target="_blank" rel="noreferrer noopener">Dementia UK</a>: 0800 888 6678</li>
+                </ul>
+            `,
+            autism: `
+                <h4 class="region-title">UK Helplines: Autism</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://www.childautism.org.uk/for-families/autism-helpline/" target="_blank" rel="noreferrer noopener">Child Autism UK</a>: 01344 882248</li>
+                    <li><a href="https://livingautism.com/" target="_blank" rel="noreferrer noopener">Living Autism</a>: 0800 756 2420</li>
+                    <li><a href="https://www.scottishautism.org/services-support" target="_blank" rel="noreferrer noopener">Scottish Autism</a>: 01259 222022</li>
+                    <li><a href="https://www.afasic.org.uk/help-for-your-child/not-talking/afasic-helpline/" target="_blank" rel="noreferrer noopener">Afasic Parents' Helpline</a>: 0300 666 9410</li>
+                </ul>
+            `,
+            bullying: `
+                <h4 class="region-title">UK Helplines: Bullying</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://www.nationalbullyinghelpline.co.uk/" target="_blank" rel="noreferrer noopener">National Bullying Helpline</a>: 0300 323 0169</li>
+                    <li><a href="http://www.kidscape.org.uk/" target="_blank" rel="noreferrer noopener">Kidscape</a> Parent's Helpline: 020 7823 5430</li>
+                    <li><a href="https://www.bullying.co.uk/" target="_blank" rel="noreferrer noopener">Bullying UK</a>: 0808 800 2222</li>
+                    <li><a href="https://www.bullybusters.org.uk/" target="_blank" rel="noreferrer noopener">Bully Busters</a>: 0800 169 6928</li>
+                    <li><a href="https://www.themix.org.uk/" target="_blank" rel="noreferrer noopener">The Mix</a>: 0808 808 4994</li>
+                    <li><a href="https://galop.org.uk/" target="_blank" rel="noreferrer noopener">LGBT+ Hate Crime Helpline</a>: 020 7704 2040</li>
+                </ul>
+            `,
+            caregiving: `
+                <h4 class="region-title">UK Helplines: Caregiving</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://www.alzheimers.org.uk/get-support/national-dementia-helpline" target="_blank" rel="noreferrer noopener">Alzheimer's Society Dementia Connect</a>: 0333 150 3456</li>
+                    <li><a href="https://www.dementiauk.org/get-support/diagnosis-and-next-steps/sources-of-support-and-advice/" target="_blank" rel="noreferrer noopener">Dementia UK</a>: 0800 888 6678</li>
+                    <li><a href="https://www.mind.org.uk/information-support/helplines/" target="_blank" rel="noreferrer noopener">Mind Infoline</a>: 0300 123 3393</li>
+                    <li><a href="https://www.carersuk.org/help-and-advice/talk-to-us" target="_blank" rel="noreferrer noopener">Carers UK</a>: 0808 808 7777</li>
+                    <li><a href="http://www.contact.org.uk/" target="_blank" rel="noreferrer noopener">Contact Helpline</a>: 0808 808 3555</li>
+                </ul>
+            `,
+            eating: `
+                <h4 class="region-title">UK Helplines: Eating Disorders</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://www.beateatingdisorders.org.uk/get-information-and-support/get-help-for-myself/i-need-support-now/helplines/" target="_blank" rel="noreferrer noopener">Beat Eating Disorders Helpline</a>: 0808 801 0677, Youthline: 0808 801 0711, Studentline: 0808 801 0811</li>
+                    <li><a href="https://eating-disorders.org.uk/" target="_blank" rel="noreferrer noopener">National Centre for Eating Disorders</a>: 0845 838 2040</li>
+                </ul>
+            `,
+            grief: `
+                <h4 class="region-title">UK Helplines: Grief and Loss</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://www.cruse.org.uk/get-help/helpline" target="_blank" rel="noreferrer noopener">Cruse Bereavement Care</a>: 0808 808 1677</li>
+                    <li><a href="https://uksobs.org/" target="_blank" rel="noreferrer noopener">Survivors of Bereavement by Suicide</a>: 0300 111 5065</li>
+                    <li><a href="https://www.tcf.org.uk/" target="_blank" rel="noreferrer noopener">The Compassionate Friends</a>: 0345 123 2304</li>
+                </ul>
+            `,
+            lgbtq: `
+                <h4 class="region-title">UK Helplines: LGBTQ+</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://bristolmind.org.uk/help-and-support/mindline-transplus/" target="_blank" rel="noreferrer noopener">MindLine Trans+</a>: 0300 330 5468</li>
+                    <li><a href="https://galop.org.uk/" target="_blank" rel="noreferrer noopener">National LGBT+ Domestic Abuse Helpline</a>: 0800 999 5428</li>
+                    <li><a href="https://www.lgbthealth.org.uk/services-support/lgbt-helpline-scotland/helplines-and-lgbt-listings/" target="_blank" rel="noreferrer noopener">LGBT Helpline Scotland</a>: 0300 123 2523</li>
+                    <li><a href="https://newfamilysocial.org.uk/nfs-contact-us" target="_blank" rel="noreferrer noopener">New Family Social</a>: 020 3880 2683</li>
+                </ul>
+            `,
+            mental: `
+                <h4 class="region-title">UK Helplines: Mental Health</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://www.nhs.uk/every-mind-matters/urgent-support/" target="_blank" rel="noreferrer noopener">NHS</a>: 111</li>
+                    <li><a href="https://www.nhs.uk/service-search/mental-health/find-an-urgent-mental-health-helpline" target="_blank" rel="noreferrer noopener">Find a local NHS urgent mental health helpline</a></li>
+                    <li><a href="https://www.mind.org.uk/information-support/helplines/" target="_blank" rel="noreferrer noopener">Mind Infoline</a>: 0300 123 3393</li>
+                    <li><a href="https://www.rethink.org/aboutus/what-we-do/advice-and-information-service" target="_blank" rel="noreferrer noopener">Rethink Mental Illness</a>: 0808 801 0525</li>
+                    <li><a href="http://www.sane.org.uk/what_we_do/support/helpline" target="_blank" rel="noreferrer noopener">SANEline</a>: 0300 304 7000</li>
+                </ul>
+          
+            `,
+            selfharm: `
+                <h4 class="region-title">UK Helplines: Self-harm</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://www.mind.org.uk/information-support/helplines/" target="_blank" rel="noreferrer noopener">Mind</a>: 0300 123 3393</li>
+                    <li><a href="https://www.selfinjurysupport.org.uk/Pages/FAQs/Category/phone-support" target="_blank" rel="noreferrer noopener">Self Injury Support</a>: 0808 800 8088</li>
+                    <li><a href="http://www.zestni.org/" target="_blank" rel="noreferrer noopener">ZEST</a>: 0287 126 6999</li>
+                    <li><a href="https://www.themix.org.uk/" target="_blank" rel="noreferrer noopener">The Mix</a>: 0808 808 4994</li>
+                </ul>
+            `,
+            sleep: `
+                <h4 class="region-title">UK Helplines: Sleep</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://thesleepcharity.org.uk/national-sleep-helpline/" target="_blank" rel="noreferrer noopener">The Sleep Charity</a>: 03303 530 541</li>
+                </ul>
+            `,
+            teens: `
+                <h4 class="region-title">UK Helplines: Teens</h4>
+                <ul class="helpline-list">
+                    <li><a href="https://www.themix.org.uk/" target="_blank" rel="noreferrer noopener">The Mix</a>: 0808 808 4994</li>
+                    <li><a href="https://www.nspcc.org.uk/" target="_blank" rel="noreferrer noopener">NSPCC Childline</a>: 0800 1111</li>
+                    <li><a href="https://www.youngminds.org.uk/parent/parents-helpline-and-webchat/" target="_blank" rel="noreferrer noopener">YoungMinds Parents Helpline</a>: 0808 802 5544</li>
+                </ul>
+            `,
+            veterans: `
+                <h4 class="region-title">UK Helplines: Veterans</h4>
+                <ul class="helpline-list">
+                    <li><a href="http://www.combatstress.org.uk/veterans" target="_blank" rel="noreferrer noopener">Combat Stress</a> 24-hour helpline: 0800 138 1619</li>
+                    <li><a href="https://www.immediatecaremedical.co.uk/gonna-call-999-111-112-101-2/" target="_blank" rel="noreferrer noopener">Emergency</a>: 999 or 112</li>
+                    <li><a href="https://www.immediatecaremedical.co.uk/gonna-call-999-111-112-101-2/" target="_blank" rel="noreferrer noopener">Non-emergency</a>: 111</li>
+                </ul>
+            `,
+        };
+
+        function resetFilters() {
+            document.getElementById('theme').value = '';
+            document.getElementById('helplines').style.display = 'none';
+            document.getElementById('helplines').innerHTML = '';
+        }
+
+        function applyFilters() {
+            const theme = document.getElementById('theme').value;
+            const helplinesDiv = document.getElementById('helplines');
+            
+            if (theme && helplinesData[theme]) {
+                helplinesDiv.style.display = 'block';
+                helplinesDiv.innerHTML = helplinesData[theme];
+                
+                // Smooth scroll to results
+                helplinesDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                helplinesDiv.style.display = 'block';
+                helplinesDiv.innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fas fa-search text-4xl text-gray-400 mb-4"></i>
+                        <p class="text-gray-600">Please select a support category to view available helplines.</p>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

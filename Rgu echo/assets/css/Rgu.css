@@ -1,0 +1,42 @@
+/*-----------------------------------*\
+  RGU Helpline Style
+\*-----------------------------------*/
+
+/* Define custom color variable */
+:root {
+    --eerie-black: #01240f;
+}
+
+/* Gradient Background */
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Card Hover Effect */
+.card-hover {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--eerie-black);
+    color: white;
+    padding: 2rem;
+}
+
+/* Footer Text Styling */
+footer p {
+    color: white; /* Pure white text */
+}
+
+footer .text-gray-400 {
+    color: #d1d5db; /* Light grey */
+}
+
+footer .text-gray-500 {
+    color: #9ca3af; /* Slightly darker grey */
+}
