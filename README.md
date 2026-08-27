@@ -31,7 +31,7 @@
 
 ---
 
-## 🔗 Included Helplines
+##  Included Helplines
 
 - Robert Gordon University Student Support
 - NHS 24 Mental Health Hub
